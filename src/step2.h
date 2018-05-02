@@ -18,14 +18,16 @@ double conGamma(VectorXd &fdirection, VectorXd &theta2)
   double threadHoldc = 1e-5;
   double threadHoldb = 0;
   int size = theta2.size(); // number of variables
-  
-  double gamma = 1e100;
+  double threadHold_coverge = 1e-8;
+  // thread hold to check the stability of gamma 
+	double gamma_threadhold = 1e-8;	
+	double gamma = 1e100;
   
   int  col = floor(sqrt(size));
   
 	int  row = size/col;
   row = row + 1;
-
+  
   for(int i = 0; i < col; i++)
   {
     if(fdirection(i) < 0 && theta2(i) > threadHoldb)
@@ -66,14 +68,14 @@ double conGamma(VectorXd &fdirection, VectorXd &theta2)
       gamma = min(gamma, -theta2(i)/fdirection(i));
   }
   
-  
   if(fdirection.sum() > threadHolda && (1-theta2.sum()) > threadHolda)
   {  
-	gamma = min(gamma, (1- theta2.sum())/fdirection.sum());
+	  gamma = min(gamma, (1- theta2.sum())/fdirection.sum());
     *min_lamba = -1;
-	*cse = 2;	
+	  *cse = 2;	
   }
-  if (gamma < 0)
+  
+	if (gamma < 0 && gamma_threadhold < 1e-6)
     gamma = 1;
 
 	

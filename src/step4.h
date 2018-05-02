@@ -28,8 +28,11 @@ void updateX(VectorXd &theta, VectorXd &thetaPre, MatrixXd &X, unordered_set<int
   row = row +4;
 
   VectorXd Xi(ncolX);
+  VectorXd Xi_tmp(ncolX);
+  MatrixXd X_tmp = X; 
   
-  // checking for new zeros in theta and updates X matrix accordingly
+
+	// checking for new zeros in theta and updates X matrix accordingly
   // we may want to switch to use Alpha later on since working on theta
   // could potentially create duplicates. 
   for(int i = 0; i < size; i++)
@@ -38,7 +41,8 @@ void updateX(VectorXd &theta, VectorXd &thetaPre, MatrixXd &X, unordered_set<int
     {		
       Alpha.insert(i);
       Xi.fill(0);
-      Xi(i) = -1;
+			Xi(i) = -1;
+			Xi_tmp(i) = Xi(i);
       X.conservativeResize(cur_rows_X+1,ncolX);
       X.row(cur_rows_X) = Xi;
       cur_rows_X +=1;
@@ -52,9 +56,10 @@ void updateX(VectorXd &theta, VectorXd &thetaPre, MatrixXd &X, unordered_set<int
     {
       if(abs(theta(i*col+j)-threadHoldc) < threadHold && Alpha.find(i*col+j)== Alpha.end() )
       {
-		Alpha.insert(i*col+j);
+		    Alpha.insert(i*col+j);
       	Xi.fill(0);
         Xi(i*col+j) = -1;
+				Xi_tmp(i*col+j) = Xi(i*col+j) - 1;
         X.conservativeResize(cur_rows_X+1,ncolX);
         X.row(cur_rows_X) = Xi;
         cur_rows_X +=1;

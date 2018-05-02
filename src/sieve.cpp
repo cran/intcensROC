@@ -172,7 +172,7 @@ NumericVector sieve(NumericVector Utmp, NumericVector Vtmp, NumericVector Marker
   {	
     Rcpp::Rcout << "Converge Failed!" << endl; 
   	for(int i = 0; i < Theta.size(); i++)
-	theta(i) = 0;
+	  theta(i) = 0;
   }
   return theta;
 }

@@ -28,7 +28,7 @@ void updateTheta(VectorXd &fdireaction, double gamma, VectorXd &theta,
   int k = 0;
   int size = theta.size();
   int col = floor(sqrt(size));
-
+  VectorXd thetaUpdate = theta;
 	int row = size/col; 
   row = row + 2;
 
@@ -39,7 +39,7 @@ void updateTheta(VectorXd &fdireaction, double gamma, VectorXd &theta,
   for(int i = 0; i <= k_limit; i++)
   {
     tempTheta = theta + half_pow_k*gamma*fdireaction;
-    
+    thetaUpdate = tempTheta * threadHold;  
     if(loglikelihood(tempTheta, ispline_U, ispline_V, mspline_m, delta, pn, qn) 
             >=loglikelihood(theta, ispline_U, ispline_V, mspline_m, delta, pn, qn))
       break;		
@@ -58,23 +58,17 @@ void updateTheta(VectorXd &fdireaction, double gamma, VectorXd &theta,
     if(theta(i) < threadHold)
       theta(i) = 0;
     if(theta(i*col) < threadHold)
-	  theta(i*col) = 0;
-	if(theta(size-col+i) < threadHold)
-	  theta(size-col+i) = 0;
+  	  theta(i*col) = 0;
+	  if(theta(size-col+i) < threadHold)
+	    theta(size-col+i) = 0;
   }
-
 
   for(int i = 1; i < col; i++)
-  {
     for(int j = 1; j < col; j++)
-    {
       if(abs(theta(i*col+j)-threadHoldc) < threadHold/1000 )
-      {
        	theta(i*col+j) = threadHoldc;
-      }
-	}
-  }
 
+  thetaUpdate = tempTheta * threadHold;  
   return;
 }
 
