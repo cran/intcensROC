@@ -1,14 +1,14 @@
-8381ae8658b80f977f926667befe07b8 *DESCRIPTION
+adb0b0c7a44d33bcbe24151d93616475 *DESCRIPTION
 a8afcaa81e5ca53659c7f73cba7d51d8 *NAMESPACE
-4b08beaea6a5bac3f9d1222585be6735 *NEWS
+8c897a59931b44af241545e473b08e0c *NEWS
 d70c712d362e1dd8becf7f8ae86db38c *R/intcensAUC.R
 f0ed739cbf6c629c607e770fa96bead7 *R/intcensROC.R
-0c1b07aa8ead4099c462a0485ad8e0c8 *build/vignette.rds
-dabb7fdc49cc84d9788890e6c1118779 *inst/doc/intcensROC.R
-fc7623fd4e8983b8def09882fad373c2 *inst/doc/intcensROC.Rnw
-48284e4f7f122d0a2eaaf92fd9625917 *inst/doc/intcensROC.pdf
+512bb95b96e8681c5e2638c18d2fb4ca *build/vignette.rds
+e7d052da3ad7da60f7ce84eb959fffa3 *inst/doc/intcensROC.R
+03a5d3e142535f031bf5712d3496ed1d *inst/doc/intcensROC.Rnw
+494f29df74dcf0628bf6cd675bd25fa4 *inst/doc/intcensROC.pdf
 5825dcbc5a46fdd4c29676cd01186cc2 *man/intcensAUC.Rd
-53523bd7318b85eec54df4fddc7958e7 *man/intcensROC-package.Rd
+06d354c942c0291715013d915e85cd11 *man/intcensROC-package.Rd
 279f9148dc5c10ecab9be0946686e447 *man/intcensROC.Rd
 f4c154f393a42d04d0f43a81e9234aef *src/Ispline.h
 1f06212fc4eccfc3c1eb9a2738b5926b *src/Makevars
@@ -30,4 +30,4 @@ c987f81e558e41c84c270d7514d86742 *src/step2.h
 9be15c00175d6564068a0ca072d9a03e *src/step5.h
 045bf618d3311d2a155f8274460a7c5b *src/sumterms.h
 abcf74d01f85f917d6b37000a73f7e2f *src/tPos.cpp
-fc7623fd4e8983b8def09882fad373c2 *vignettes/intcensROC.Rnw
+03a5d3e142535f031bf5712d3496ed1d *vignettes/intcensROC.Rnw

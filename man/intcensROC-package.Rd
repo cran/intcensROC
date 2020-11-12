@@ -21,8 +21,8 @@ censored survival data as well as area under the curve (AUC).
 \tabular{ll}{
 Package: \tab intcensROC \cr
 Type: \tab Package\cr
-Version: \tab 1.0\cr
-Date: \tab 2017-01-05\cr
+Version: \tab 1.0.2\cr
+Date: \tab 2020-11-11\cr
 License: \tab GPL-3\cr
 }
 Please refer to the individual 
